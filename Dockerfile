@@ -1,4 +1,4 @@
-FROM yukoff/alpine-bdb48:latest
+FROM yukoff/alpine-bdb48:32bit
 
 ENV HOME /dash
 
