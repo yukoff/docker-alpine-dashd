@@ -1,5 +1,5 @@
 FROM yukoff/alpine-bdb48:latest
-
+ENV VERSION ${VERSION:-0.12.2.1}
 ENV HOME /dash
 
 # add user with specified (or default) user/group ids
@@ -32,7 +32,7 @@ RUN apk --no-cache upgrade && \
       libzmq \
       miniupnpc-dev \
       miniupnpc && \
-    git clone https://github.com/dashpay/dash.git /tmp/dash && \
+    git clone -b v${VERSION} --depth 50 https://github.com/dashpay/dash.git /tmp/dash && \
     cd /tmp/dash && \
     ./autogen.sh && \
     ./configure --prefix=/usr \
